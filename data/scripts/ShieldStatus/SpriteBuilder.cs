@@ -163,7 +163,7 @@ namespace Natomic.ShieldStatus
                     Alignment = alignment,
                     RotationOrScale = Scale,
                     FontId = font_id,
-                    Color = color ?? Color.White,
+                    Color = color ?? Surface?.ScriptForegroundColor ?? Color.White,
                     Position = CurrPos + roffset,
                 };
             }
