@@ -23,6 +23,7 @@ namespace Natomic.ShieldStatus
         internal readonly SpriteBuilder builder_ = new SpriteBuilder();
         internal Vector2 progress_sprite_size_;
         internal IMyTerminalBlock shield_block_;
+        internal Vector2 margin_;
 
         internal MyIniKey scale_key;
 
@@ -37,9 +38,11 @@ namespace Natomic.ShieldStatus
             }
             builder_.Surface = surface;
 
-            builder_.Viewport = new RectangleF(new Vector2(0, (surface.TextureSize.Y - surface.SurfaceSize.Y) / 2f), size);
+            var progress_width = size.X / 4 * 3;
+            margin_ = new Vector2((size.X / 2f - progress_width / 2f), SpriteBuilder.NEWLINE_HEIGHT_BASE);
+            builder_.Viewport = new RectangleF(new Vector2(margin_.X, margin_.Y + (surface.TextureSize.Y - surface.SurfaceSize.Y) / 2f), size - margin_);
             builder_.Scale = 1;
-            progress_sprite_size_ = new Vector2(size.X / 4 * 3, SpriteBuilder.NEWLINE_HEIGHT_BASE / 4 * 3);
+            progress_sprite_size_ = new Vector2(progress_width, SpriteBuilder.NEWLINE_HEIGHT_BASE / 4 * 3);
         }
 
 
@@ -65,13 +68,13 @@ namespace Natomic.ShieldStatus
         }
         private static Color ColourForPercent(float percent)
         {
-           if (percent >= 60)
+           if (percent > 60)
             {
                 return Color.Green;
-            } else if (percent >= 30)
+            } else if (percent > 30)
             {
                 return Color.Orange;
-            } else if (percent >= 10)
+            } else if (percent > 10)
             {
                 return Color.DarkOrange;
             } else
@@ -81,20 +84,20 @@ namespace Natomic.ShieldStatus
         }
         internal Vector2 CenterOfSurfaceX()
         {
-            return new Vector2(Surface.SurfaceSize.X / 2f, 0);
+            return new Vector2((Surface.SurfaceSize.X) / 2f - margin_.X, 0);
         }
         private void DrawProgressBar()
         {
             var shield_status = FindCurrShieldHP();
             var shield_max = ds_api_.GetMaxCharge(shield_block_);
-            var status_color = ColourForPercent(shield_status);
+            var status_color = ColourForPercent(shield_status / shield_max * 100);
             using (var ident = builder_.WithIndent((int)(CenterOfSurfaceX().X - progress_sprite_size_.X / 2f)))
             {
                 builder_.MakeProgressBar(sprites_, progress_sprite_size_, Color.White, status_color, shield_status, shield_max);
             }
             builder_.AddNewline();
             sprites_.Add(builder_.MakeText(
-                $"{(100 * shield_status / shield_max):0.#} %",
+                $"HP: {(100 * shield_status / shield_max):0.#} %",
                 alignment: TextAlignment.CENTER,
                 color: status_color,
                 offset: CenterOfSurfaceX()
@@ -104,15 +107,26 @@ namespace Natomic.ShieldStatus
         {
             ds_api_?.Unload();
         }
-        private void DrawPowerUse()
+        private void DrawMaxHP()
         {
-            var pow = ds_api_.GetPowerUsed(shield_block_);
-            sprites_.Add(builder_.MakeText($"Power use: {pow}Mw", alignment: TextAlignment.RIGHT, offset: new Vector2(Surface.SurfaceSize.X, 0)));
+            var pow = ds_api_.GetMaxHpCap(shield_block_);
+            while ((int)pow != pow)
+            {
+                pow *= 10;
+            }
+            var txt = $"HP max: {pow:N0}";
+            sprites_.Add(builder_.MakeText(txt, alignment: TextAlignment.CENTER, offset: CenterOfSurfaceX()));
         }
         private void DrawHeat()
         {
             var heat = ds_api_.GetShieldHeat(shield_block_);
-            sprites_.Add(builder_.MakeText($"Heat: {heat}"));
+            var status_color = ColourForPercent(100 - heat);
+            using (var ident = builder_.WithIndent((int)(CenterOfSurfaceX().X - progress_sprite_size_.X / 2f)))
+            {
+                builder_.MakeProgressBar(sprites_, progress_sprite_size_, Color.White, status_color, heat, 100);
+            }
+            builder_.AddNewline();
+            sprites_.Add(builder_.MakeText($"Heat: {heat} %", alignment: TextAlignment.CENTER, offset: CenterOfSurfaceX(), color: status_color));
         }
         private void DrawStatus()
         {
@@ -154,6 +168,9 @@ namespace Natomic.ShieldStatus
             builder_.AddNewline();
             DrawProgressBar();
             builder_.AddNewline();
+            DrawHeat();
+            builder_.AddNewline();
+            DrawMaxHP();
         }
 
     }
