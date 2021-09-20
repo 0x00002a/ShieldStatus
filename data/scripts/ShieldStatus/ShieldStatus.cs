@@ -14,7 +14,7 @@ namespace Natomic.ShieldStatus
     [MyTextSurfaceScript("ShieldStatus", "Shield Status")]
     public class ShieldStatus : MyTextSurfaceScriptBase
     {
-        public override ScriptUpdate NeedsUpdate => ScriptUpdate.Update10;
+        public override ScriptUpdate NeedsUpdate => shield_block_ == null ? ScriptUpdate.Update100 : ScriptUpdate.Update10;
 
         internal readonly ShieldApi ds_api_ = new ShieldApi();
         internal Exception err_ = null;
@@ -36,12 +36,7 @@ namespace Natomic.ShieldStatus
             builder_.Viewport = new RectangleF(new Vector2(0, (surface.TextureSize.Y - surface.SurfaceSize.Y) / 2f), surface.SurfaceSize);
             builder_.Scale = 1;
             progress_sprite_size_ = new Vector2(surface.SurfaceSize.X / 4 * 3, SpriteBuilder.NEWLINE_HEIGHT_BASE / 4 * 3);
-            shield_block_ = ds_api_.MatchEntToShieldFast((IMyEntity)block.CubeGrid, false);
-            if (shield_block_ == null)
-            {
-                err_ = new Exception("failed to find shield");
-                return;
-            }
+            
         }
 
         private float FindCurrShieldHP()
@@ -50,6 +45,18 @@ namespace Natomic.ShieldStatus
         }
         public override void Run()
         {
+            var grid = (IMyCubeGrid)Block.CubeGrid;
+            if (err_ == null)
+            {
+                if (!ds_api_.GridHasShield(grid))
+                {
+                    shield_block_ = null;
+                }
+                else if (shield_block_ == null)
+                {
+                    shield_block_ = ds_api_.MatchEntToShieldFast(grid, false);
+                }
+            }
             Draw();
         }
         private static Color ColourForPercent(float percent)
@@ -115,6 +122,10 @@ namespace Natomic.ShieldStatus
             if (err_ != null)
             {
                 DrawErr();
+            } 
+            else if (shield_block_ == null)
+            {
+                DrawNoShield();
             }
             else
             {
@@ -125,9 +136,13 @@ namespace Natomic.ShieldStatus
                 frame.AddRange(sprites_);
             }
         }
+        private void DrawNoShield()
+        {
+            sprites_.Add(builder_.MakeText("No shield found", alignment: TextAlignment.CENTER, color: Color.Yellow, offset: CenterOfSurfaceX()));
+        }
         private void DrawErr()
         {
-            sprites_.Add(builder_.MakeText($"error during run: {err_.Message}", TextAlignment.CENTER, Color.Red));
+            sprites_.Add(builder_.MakeText($"error during run: {err_.Message}", alignment: TextAlignment.CENTER, color: Color.Red, offset: CenterOfSurfaceX()));
         }
         private void DrawShieldInfo()
         {
