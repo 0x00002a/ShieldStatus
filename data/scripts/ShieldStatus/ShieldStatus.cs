@@ -8,6 +8,7 @@ using DefenseShields;
 using VRage.Game.GUI.TextPanel;
 using System.Collections.Generic;
 using VRage.ModAPI;
+using VRage.Game.ModAPI.Ingame.Utilities;
 
 namespace Natomic.ShieldStatus
 {
@@ -23,6 +24,9 @@ namespace Natomic.ShieldStatus
         internal Vector2 progress_sprite_size_;
         internal IMyTerminalBlock shield_block_;
 
+        internal MyIniKey scale_key;
+
+
 
         public ShieldStatus(IMyTextSurface surface, IMyCubeBlock block, Vector2 size) : base(surface, block, size)
         {
@@ -33,11 +37,11 @@ namespace Natomic.ShieldStatus
             }
             builder_.Surface = surface;
 
-            builder_.Viewport = new RectangleF(new Vector2(0, (surface.TextureSize.Y - surface.SurfaceSize.Y) / 2f), surface.SurfaceSize);
+            builder_.Viewport = new RectangleF(new Vector2(0, (surface.TextureSize.Y - surface.SurfaceSize.Y) / 2f), size);
             builder_.Scale = 1;
-            progress_sprite_size_ = new Vector2(surface.SurfaceSize.X / 4 * 3, SpriteBuilder.NEWLINE_HEIGHT_BASE / 4 * 3);
-            
+            progress_sprite_size_ = new Vector2(size.X / 4 * 3, SpriteBuilder.NEWLINE_HEIGHT_BASE / 4 * 3);
         }
+
 
         private float FindCurrShieldHP()
         {
