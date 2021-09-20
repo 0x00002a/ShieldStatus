@@ -122,7 +122,7 @@ namespace Natomic.ShieldStatus
         private void Draw()
         {
             sprites_.Clear();
-            builder_.CurrPos = new Vector2(0, 0);
+            builder_.CurrPos = builder_.Viewport.Position;
             if (err_ != null)
             {
                 DrawErr();
