@@ -90,7 +90,7 @@ namespace Natomic.ShieldStatus
             }
             builder_.AddNewline();
             sprites_.Add(builder_.MakeText(
-                $"{(100 * shield_status / shield_max)} %",
+                $"{(100 * shield_status / shield_max):0.#} %",
                 alignment: TextAlignment.CENTER,
                 color: status_color,
                 offset: CenterOfSurfaceX()
