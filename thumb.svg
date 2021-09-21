@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1920"
+   height="1080"
+   viewBox="0 0 508 285.75"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="thumb.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.49497475"
+     inkscape:cx="909.59988"
+     inkscape:cy="693.00247"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer2"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     units="px"
+     inkscape:window-width="1920"
+     inkscape:window-height="1017"
+     inkscape:window-x="1272"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="BG">
+    <rect
+       style="fill:#009ad6;stroke:#1d2316;stroke-width:0.0648456;paint-order:stroke fill markers;fill-opacity:1"
+       id="rect833"
+       width="507.93515"
+       height="285.68515"
+       x="0.0324228"
+       y="0.0324228"
+       ry="1.3190944" />
+    <rect
+       style="fill:#ffdf10;stroke:#1d2316;stroke-width:0.088758;paint-order:stroke fill markers;fill-opacity:1"
+       id="rect837"
+       width="251.74414"
+       height="58.775539"
+       x="10.16812"
+       y="12.306277"
+       ry="1.3722833" />
+    <text
+       xml:space="preserve"
+       style="font-size:42.3333px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.265;stroke-miterlimit:4;stroke-dasharray:none;fill:#0b090a;fill-opacity:1;"
+       x="135.93684"
+       y="56.318466"
+       id="text841"><tspan
+         sodipodi:role="line"
+         id="tspan839"
+         x="135.93684"
+         y="56.318466"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:42.3333px;font-family:'Cambria Math';-inkscape-font-specification:'Cambria Math';stroke-width:0.265;stroke-miterlimit:4;stroke-dasharray:none;fill:#0b090a;fill-opacity:1;">Shield Status</tspan></text>
+    <rect
+       style="fill:#ffdf10;stroke:#1d2316;stroke-width:0.0457951;paint-order:stroke fill markers;fill-opacity:1"
+       id="rect901"
+       width="212.74654"
+       height="28.390699"
+       x="288.65109"
+       y="234.63257"
+       ry="2"
+       rx="2" />
+    <text
+       xml:space="preserve"
+       style="font-size:14.1111px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;stroke-width:0.264583"
+       x="394.62473"
+       y="254.11613"
+       id="text905"><tspan
+         sodipodi:role="line"
+         id="tspan903"
+         x="394.62473"
+         y="254.11613"
+         style="font-size:14.1111px;stroke-width:0.264583">For use with Defense Shields</tspan></text>
+    <g
+       id="g990"
+       transform="translate(2.2321054,-6.9295663)">
+      <g
+         id="g967"
+         transform="translate(0,15.501633)">
+        <g
+           id="g915"
+           transform="translate(1.3363455,-70.559155)">
+          <rect
+             style="fill:none;fill-opacity:1;stroke:#fdfcfc;stroke-width:1.165;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             id="rect909"
+             width="341.57047"
+             height="37.952274"
+             x="79.646317"
+             y="158.75809"
+             rx="2.0000012"
+             ry="2.0000012" />
+          <rect
+             style="fill:#01c701;fill-opacity:1;stroke:#fdfcfc;stroke-width:1.12914;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             id="rect911"
+             width="284.94528"
+             height="37.988144"
+             x="79.628387"
+             y="158.74016"
+             ry="1.3203397" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-size:25.4px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#b8def0;fill-opacity:1;stroke-width:0.264583"
+           x="249.56958"
+           y="116.40862"
+           id="text919"><tspan
+             sodipodi:role="line"
+             id="tspan917"
+             x="249.56958"
+             y="116.40862"
+             style="font-size:25.4px;fill:#ffffff;fill-opacity:1;stroke-width:0.264583">HP</tspan></text>
+      </g>
+      <g
+         id="g975"
+         transform="translate(0,15.501633)">
+        <g
+           id="g915-8"
+           transform="translate(1.3363455,-16.303435)">
+          <rect
+             style="fill:none;fill-opacity:1;stroke:#fdfcfc;stroke-width:1.165;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             id="rect909-7"
+             width="341.57047"
+             height="37.952274"
+             x="79.646317"
+             y="158.75809"
+             rx="2.0000012"
+             ry="2.0000012" />
+          <rect
+             style="fill:#fe1a19;fill-opacity:1;stroke:#fdfcfc;stroke-width:1.1968;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+             id="rect911-4"
+             width="320.69174"
+             height="37.920483"
+             x="79.662224"
+             y="158.77399"
+             ry="1.3179879" />
+        </g>
+        <text
+           xml:space="preserve"
+           style="font-size:25.4px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle;fill:#b8def0;fill-opacity:1;stroke-width:0.264583"
+           x="250.78812"
+           y="170.47211"
+           id="text919-6"><tspan
+             sodipodi:role="line"
+             id="tspan917-6"
+             x="250.78812"
+             y="170.47211"
+             style="font-size:25.4px;fill:#ffffff;fill-opacity:1;stroke-width:0.264583">Heat</tspan><tspan
+             sodipodi:role="line"
+             x="250.78812"
+             y="202.22211"
+             style="font-size:25.4px;fill:#ffffff;fill-opacity:1;stroke-width:0.264583"
+             id="tspan960" /></text>
+      </g>
+    </g>
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1" />
+</svg>
