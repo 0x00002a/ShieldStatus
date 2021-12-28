@@ -107,13 +107,11 @@ namespace Natomic.ShieldStatus
         {
             ds_api_?.Unload();
         }
+
         private void DrawMaxHP()
         {
-            var pow = ds_api_.GetMaxHpCap(shield_block_);
-            while ((int)pow != pow)
-            {
-                pow *= 10;
-            }
+            var pow = ds_api_.GetMaxCharge(shield_block_) * 100; // Its a float out by 100, for some reason
+			
             var txt = $"HP max: {pow:N0}";
             sprites_.Add(builder_.MakeText(txt, alignment: TextAlignment.CENTER, offset: CenterOfSurfaceX()));
         }
